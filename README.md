@@ -26,6 +26,38 @@ python3 life.py glider_gun.csv
 
 The game starts paused. Press `space` to start.
 
+### Run it from an IDE
+
+The game needs a real terminal. Some IDEs run scripts in an output panel that is not a terminal. Then you get this error:
+
+```
+_curses.error: setupterm: could not find terminal
+```
+
+**PyCharm**: open *Run → Edit Configurations…*, select your `life.py` configuration, then click *Modify options* and check **Emulate terminal in output console**. This also works in Debug mode. If the error is still there, add `TERM=xterm-256color` to *Environment variables*.
+
+**VS Code**: run the script in the integrated terminal, not in the *Debug Console*. In `.vscode/launch.json`, set `"console": "integratedTerminal"` (this is the default value):
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Game of Life",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/life.py",
+            "args": ["glider_gun.csv"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
+```
+
+With these settings, you can also use the debugger and breakpoints.
+
+To only play (no debugger), you can also open the built-in terminal tab of the IDE and run `python3 life.py glider_gun.csv` there.
+
 ## Keys
 
 | Key       | Action                                |
