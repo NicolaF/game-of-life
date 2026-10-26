@@ -24,6 +24,12 @@ You need Python 3. It works out of the box on macOS and Linux. On Windows, first
 python3 life.py glider_gun.csv
 ```
 
+If you use [uv](https://docs.astral.sh/uv/), you can skip the Windows step. uv installs `windows-curses` for you on Windows:
+
+```
+uv run life.py glider_gun.csv
+```
+
 The game starts paused. Press `space` to start.
 
 ### Run it from an IDE
